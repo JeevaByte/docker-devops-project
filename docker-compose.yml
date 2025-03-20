@@ -7,10 +7,17 @@ services:
     container_name: flask-backend
     environment:
       - FLASK_ENV=development
+      - DB_HOST=database
+      - DB_NAME=appdb
+      - DB_USER=admin
+      - DB_PASS=adminpassword
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
     ports:
       - "5000:5000"
     depends_on:
       - database
+      - redis
     networks:
       - app-network
 
